@@ -1,44 +1,48 @@
-if (typeof $ === 'undefined')
-{
-    throw new Error('No JQuery found');
-}
+(function() {
+    'use strict';
+
+    if (typeof $ === 'undefined')
+    {
+        throw new Error('No JQuery found');
+    }
+
+    function ColorChanger(bgEl, incEl, btnEls, initClrFnc, clickCB)
+    {
+        this.backgroundEl = bgEl;
+        this.incrementEl = incEl;
+        this.buttonEls = btnEls;
+        this.initColorFunc = initClrFnc;
+        this.clickFunc = clickCB;
+    }
+
+    ColorChanger.prototype.init = function()
+    {
+        var $incEl = this.incrementEl,
+            $bgEl = this.backgroundEl;
+        this.initColorFunc($bgEl);
+        var clickFnc = this.clickFunc;
+        this.buttonEls.click(function() {
+            clickFnc(parseInt($(this).data('colorchannel'),10),$(this).data('sign'), $incEl.val(), $bgEl);
+        });
+    };
+
+    if (typeof module !== 'undefined') {
+        module.exports = ColorChanger;
+    } else if (typeof window !== 'undefined') {
+        window.ColorChanger = ColorChanger;
+    }
+
+})();
 
 function initColor(backgroundEl) {
     $.get('/get',function(data) {
-       backgroundEl.css({'background-color': data});
-    });
-}
-
-function sendClick(btnEl,incrementEl,backgroundEl) {
-    var channel = ["red","green","blue"].reduce(function(prevVal,currItem,index) {
-        if (prevVal != -1)
-        {
-            return prevVal;
-        }
-        else
-        {
-            if (btnEl.className.indexOf(currItem) >= 0)
-            {
-                return index;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-    },-1);
-    var increment = (btnEl.className.indexOf("minus") >= 0) ? -incrementEl.val() : incrementEl.val();
-    $.get('/change', {channel: channel, increment: increment}, function(data) {
         backgroundEl.css({'background-color': data});
     });
 }
 
-function init()
-{
-    var $incBox = $('#increment'),
-        $colBox = $('#colorbox');
-    initColor($colBox);
-    $('.btn').click(function() {
-        sendClick(this,$incBox,$colBox);
+function sendClick(channel, sign, increment,backgroundEl) {
+    var inc =sign + increment;
+    $.get('/change', {channel: channel, increment: inc}, function(data) {
+        backgroundEl.css({'background-color': data});
     });
 }

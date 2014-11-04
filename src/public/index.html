@@ -10,30 +10,27 @@
 <body>
     <div class="buttons">
         <br />
-        <div class="colornamebox">
-            <button class="btn red minus"">-</button>
+        <div class="box">
+            <button class="btn red" data-colorchannel="0" data-sign="-">-</button>
             <div class="colorname"> Red </div>
-            <button class="btn red plus">+</button>
+            <button class="btn red" data-colorchannel="0" data-sign="+">+</button>
         </div><br /><br />
-        <div class="colornamebox">
-            <button class="btn green minus">-</button>
+        <div class="box">
+            <button class="btn green" data-colorchannel="1" data-sign=-">-</button>
             <div class="colorname"> Green </div>
-            <button class="btn green plus">+</button>
+            <button class="btn green" data-colorchannel="1" data-sign="+">+</button>
         </div><br /><br />
-        <div class="colornamebox">
-            <button class="btn blue minus">-</button>
+        <div class="box">
+            <button class="btn blue" data-colorchannel="1" data-sign="-">-</button>
             <div class="colorname"> Blue </div>
-            <button class="btn blue plus">+</button>
+            <button class="btn blue" data-colorchannel="1" data-sign="+">+</button>
         </div><br /><br />
     </div>
-    <div>
-        Increment: <input id="increment" type="number" value="1" min="1"/>
+    <div class="box">
+        Increment: <input id="increment" type="number" value="10" min="1" max="255"/>
     </div> <br /><br />
-    <div id="colorbox">
-
-    </div>
     <script>
-        $(init());
+        new ColorChanger($('body'), $('#increment'), $('.btn'), initColor, sendClick).init();
     </script>
 </body>
 </html>

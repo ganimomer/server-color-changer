@@ -16,11 +16,27 @@ module.exports = function(grunt) {
                 specNameMatcher: 'spec',
                 extentions: 'js'
             },
-            all: ['test']
+            all: ['test/server']
+        },
+        karma: {
+            unit: {
+                options: {
+                    files: [
+                        'src/public/js/lib/**/*.js',
+                        'src/public/**/*.js',
+                        'test/client/**/colorChanger.spec.js'
+                    ],
+                    browsers: ['PhantomJS'],
+                    singleRun: true,
+                    logLevel: 'ERROR',
+                    frameworks: ['jasmine']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-jasmine-node');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.registerTask('default',['eslint', 'jasmine_node']);
 };

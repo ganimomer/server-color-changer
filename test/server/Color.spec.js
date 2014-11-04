@@ -5,7 +5,7 @@ var Color
 describe('Color.js', function() {
 
   beforeEach(function() {
-    Color = Color || require('../src/server/Color.js')
+    Color = Color || require('../../src/server/Color.js')
   })
 
   it('should have Color defined', function() {
@@ -39,9 +39,5 @@ describe('Color.js', function() {
     expect(red.hex).toEqual('#ff0000')
   })
 
-
-})
-
-describe('ColorServer.js', function() {
 
 })
