@@ -1,0 +1,54 @@
+body {
+    font-family: sans-serif;
+}
+
+.btn {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.red {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.green {
+    background-color: #4cae4c;
+    border-color: #4cae4c;
+}
+
+.blue {
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+.colorname {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.colornamebox {
+    border: 1px solid #000000;
+    display: inline-block;
+    padding: 5px;
+}
+
+#increment {
+    width: 40px;
+}
+
+#colorbox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #444444;
+}
