@@ -28,5 +28,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.registerTask('default',['jasmine_node', 'karma', 'eslint']);
+    grunt.registerTask('default',['eslint', 'jasmine_node', 'karma']);
 };

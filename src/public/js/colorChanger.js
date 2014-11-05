@@ -32,7 +32,7 @@
         window.ColorChanger = ColorChanger;
     }
 
-})();
+}());
 
 function pollColor(backgroundEl) {
     setInterval(function() {

@@ -139,6 +139,7 @@
         "amd": false
     },
     "globals": {
+        "window": false,
         "describe": false,
         "ddescribe": false,
         "iit": false,
