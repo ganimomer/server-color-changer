@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '/../public/')));
 var serverColor = new Color('#ffffff');
 
 app.get('/get', function(req, res) {
-   console.log('get');
+   //console.log('get');
     res.status(200).json(serverColor.hex);
 });
 

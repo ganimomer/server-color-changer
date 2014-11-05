@@ -6,12 +6,12 @@
         throw new Error('No JQuery found');
     }
 
-    function ColorChanger(bgEl, incEl, btnEls, initClrFnc, clickCB)
+    function ColorChanger(bgEl, incEl, btnEls, pollClrFnc, clickCB)
     {
         this.backgroundEl = bgEl;
         this.incrementEl = incEl;
         this.buttonEls = btnEls;
-        this.initColorFunc = initClrFnc;
+        this.pollColorFunc = pollClrFnc;
         this.clickFunc = clickCB;
     }
 
@@ -19,7 +19,7 @@
     {
         var $incEl = this.incrementEl,
             $bgEl = this.backgroundEl;
-        this.initColorFunc($bgEl);
+        this.pollColorFunc($bgEl);
         var clickFnc = this.clickFunc;
         this.buttonEls.click(function() {
             clickFnc(parseInt($(this).data('colorchannel'),10),$(this).data('sign'), $incEl.val(), $bgEl);
@@ -34,10 +34,12 @@
 
 })();
 
-function initColor(backgroundEl) {
-    $.get('/get',function(data) {
-        backgroundEl.css({'background-color': data});
-    });
+function pollColor(backgroundEl) {
+    setInterval(function() {
+        $.get('/get',function(data) {
+            backgroundEl.css({'background-color': data});
+        });
+    },1000);
 }
 
 function sendClick(channel, sign, increment, backgroundEl) {

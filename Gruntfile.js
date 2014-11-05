@@ -3,7 +3,7 @@
 module.exports = function(grunt) {
     grunt.config.init({
         eslint: {
-            src: ['*.js', 'src/**/*.js', '!src/public/js/lib/*.js'],
+            src: ['*.js', 'src/**/*.js', '!src/public/js/lib/*.js', '!Gruntfile.js'],
             options: {
                 config: '.eslintrc'
             }
@@ -28,5 +28,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.registerTask('default',['eslint', 'jasmine_node']);
+    grunt.registerTask('default',['jasmine_node', 'karma', 'eslint']);
 };
