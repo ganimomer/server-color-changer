@@ -1,6 +1,6 @@
-(function() {
-    'use strict';
+'use strict';
 
+(function() {
     if (typeof $ === 'undefined')
     {
         throw new Error('No JQuery found');
@@ -40,8 +40,8 @@ function initColor(backgroundEl) {
     });
 }
 
-function sendClick(channel, sign, increment,backgroundEl) {
-    var inc =sign + increment;
+function sendClick(channel, sign, increment, backgroundEl) {
+    var inc = sign + increment;
     $.get('/change', {channel: channel, increment: inc}, function(data) {
         backgroundEl.css({'background-color': data});
     });

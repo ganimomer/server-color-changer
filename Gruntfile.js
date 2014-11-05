@@ -3,7 +3,7 @@
 module.exports = function(grunt) {
     grunt.config.init({
         eslint: {
-            src: ['*.js', 'src/**/*.js', '!public/js/lib/*.js'],
+            src: ['*.js', 'src/**/*.js', '!src/public/js/lib/*.js'],
             options: {
                 config: '.eslintrc'
             }
@@ -20,17 +20,7 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                options: {
-                    files: [
-                        'src/public/js/lib/**/*.js',
-                        'src/public/**/*.js',
-                        'test/client/**/colorChanger.spec.js'
-                    ],
-                    browsers: ['PhantomJS'],
-                    singleRun: true,
-                    logLevel: 'ERROR',
-                    frameworks: ['jasmine']
-                }
+                configFile: 'karma.conf.js'
             }
         }
     });
