@@ -39,7 +39,7 @@ function pollColor(backgroundEl) {
         $.get('/get',function(data) {
             backgroundEl.css({'background-color': data});
         });
-    },1000);
+    },500);
 }
 
 function sendClick(channel, sign, increment, backgroundEl) {
