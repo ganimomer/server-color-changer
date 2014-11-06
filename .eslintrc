@@ -139,6 +139,8 @@
         "amd": false
     },
     "globals": {
+        "define": false,
+        "requirejs": false,
         "window": false,
         "describe": false,
         "ddescribe": false,
