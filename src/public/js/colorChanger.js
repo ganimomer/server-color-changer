@@ -1,6 +1,6 @@
 'use strict';
 
-define('colorChanger', ['lib/jquery-2.1.1.min'], function() {
+define('colorChanger', ['jquery'], function($) {
     if (typeof $ === 'undefined')
     {
         throw new Error('No JQuery found');

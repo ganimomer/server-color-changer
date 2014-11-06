@@ -1,6 +1,5 @@
 'use strict';
-define(['src/public/js/colorChanger','src/public/js/lib/jquery-2.1.1.min'], function(clrChanger, jquery) {
-    var colorChanger;
+define(['colorChanger', 'jquery'], function (colorChanger, $) {
 
     describe('colorChanger.js', function () {
 

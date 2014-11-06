@@ -7,7 +7,7 @@ requirejs.config({
 });
 
 /*eslint-disable no-undef*/
-requirejs(['jquery', 'colorChanger'], function($, colorChanger) {
+requirejs(['colorChanger', 'jquery'], function(colorChanger, $) {
     var clrChanger = new ColorChanger($('body'), $('#increment'), $('.btn'));
     clrChanger.init();
 });

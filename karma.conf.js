@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Wed Nov 05 2014 18:15:03 GMT+0200 (IST)
+'use strict';
 
 module.exports = function(config) {
   config.set({
@@ -19,8 +20,7 @@ module.exports = function(config) {
       {pattern: 'src/public/js/lib/**/*.js', included: false},
       {pattern: 'src/public/js/lib/**/*.js', included: false},
       {pattern: 'src/public/**/*.js', included: false},
-      {pattern: 'test/client/**/*.spec.js', included: false},
-      {pattern: 'test/client/**/test-main.js', included: false}
+      {pattern: 'test/client/**/*.spec.js', included: false}
     ],
 
 
